@@ -1,10 +1,10 @@
 ---
 title: Lecture7 Transformer
 tags:
- - Hung-yi Lee ML 学习笔记
+  - Hung-yi Lee ML 学习笔记
 ---
 
-[课件下载Lecture7.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/seq2seq_v9.pdf)
+[课件下载 Lecture7.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/seq2seq_v9.pdf)
 
 ## Applications
 
@@ -50,7 +50,7 @@ tags:
 
 #### Decoder – Autoregressive (AT)
 
-![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705887487281-2dc728d0-b541-429c-9605-21f743d5775f.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705887573349-d507f7dc-9a3b-47ba-b8ac-417e09b500ca.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705887591355-ebf750d8-2004-45cc-b40d-9132b954f31f.png)Masked Self-attention就是计算$\alpha ^ {'}$时只考虑现输入和以前的输入，因为Decoder的时候$\alpha_1,\alpha_2,\alpha_3,\alpha_4$一个一个产生的，所以在计算$\alpha^{'}$时只能考虑现输入和以前的输入<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705888388589-07d96645-4c8d-4e87-a5b6-c52874f25f62.png)<br /> ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705889815797-adf8c8af-4b64-4e73-acda-a453724fb34e.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705889865075-f566b45a-7aa7-49a1-8ae4-185f655f06fb.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705889896431-5bd9da63-2ffe-438f-b9db-dc7929bc97a6.png)
+![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705887487281-2dc728d0-b541-429c-9605-21f743d5775f.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705887573349-d507f7dc-9a3b-47ba-b8ac-417e09b500ca.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705887591355-ebf750d8-2004-45cc-b40d-9132b954f31f.png)Masked Self-attention 就是计算$\alpha ^ {'}$时只考虑现输入和以前的输入，因为 Decoder 的时候$\alpha_1,\alpha_2,\alpha_3,\alpha_4$一个一个产生的，所以在计算$\alpha^{'}$时只能考虑现输入和以前的输入<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705888388589-07d96645-4c8d-4e87-a5b6-c52874f25f62.png)<br /> ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705889815797-adf8c8af-4b64-4e73-acda-a453724fb34e.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705889865075-f566b45a-7aa7-49a1-8ae4-185f655f06fb.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705889896431-5bd9da63-2ffe-438f-b9db-dc7929bc97a6.png)
 
 #### Decoder – Non-autoregressive (NAT)
 
@@ -66,7 +66,7 @@ tags:
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705905422634-82cbb80d-1ae9-407c-b21a-5407c08c2a2f.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705905944691-20129c74-0e9c-4cc7-941d-9f255f406efd.png)
 
-### 训练的Tips
+### 训练的 Tips
 
 #### Copy Mechanism
 
@@ -74,12 +74,12 @@ tags:
 
 #### Guided Attention
 
-![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705924806752-1113e169-5a17-4500-a26b-c1f3e76b925d.png)<br />我们训练的时候强制让它从左到右计算Attention weights<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705924834736-16ba8d6a-596b-46bc-b804-1a5dfec590ce.png)
+![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705924806752-1113e169-5a17-4500-a26b-c1f3e76b925d.png)<br />我们训练的时候强制让它从左到右计算 Attention weights<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705924834736-16ba8d6a-596b-46bc-b804-1a5dfec590ce.png)
 
 #### Beam Search
 
-Beam Search可以找到分数最高的路径<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705925931367-14a1c84f-f94d-4626-a7ca-73f02c6ac7ad.png)<br />而有一些需要机器具有一定的创造性的任务Beam Search就不一定有好的效果了，（e.g. sentence completion, TTS）,这时候我们就期待Decoder具有一定的随机性<br /> ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705926784021-0946b39d-d50c-4ec0-83d6-b6a9e53fb7b0.png)
+Beam Search 可以找到分数最高的路径<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705925931367-14a1c84f-f94d-4626-a7ca-73f02c6ac7ad.png)<br />而有一些需要机器具有一定的创造性的任务 Beam Search 就不一定有好的效果了，（e.g. sentence completion, TTS）,这时候我们就期待 Decoder 具有一定的随机性<br /> ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705926784021-0946b39d-d50c-4ec0-83d6-b6a9e53fb7b0.png)
 
 #### Scheduled Sampling
 
-由于测试的时候Decoder是看着它自己的前一个输出然后输出后一个，如果Decoder输出了一个错误的答案，那么Decoder很有可能就是一步错，步步错，因为我们训练的时候Decoder看到的都是完全正确的情况，所以为了解决这个问题，我们可以在训练的时候就加入一些错误，反而能得到好的训练结果<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705927860597-0999a11d-aa5d-43f6-94bd-68d93fbc24fe.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705928027038-c3f1c83e-9078-404e-8ff0-f026fdabd577.png)
+由于测试的时候 Decoder 是看着它自己的前一个输出然后输出后一个，如果 Decoder 输出了一个错误的答案，那么 Decoder 很有可能就是一步错，步步错，因为我们训练的时候 Decoder 看到的都是完全正确的情况，所以为了解决这个问题，我们可以在训练的时候就加入一些错误，反而能得到好的训练结果<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705927860597-0999a11d-aa5d-43f6-94bd-68d93fbc24fe.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705928027038-c3f1c83e-9078-404e-8ff0-f026fdabd577.png)

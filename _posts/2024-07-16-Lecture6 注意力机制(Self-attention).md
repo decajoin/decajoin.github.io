@@ -1,14 +1,14 @@
 ---
 title: Lecture6 注意力机制(Self-attention)
 tags:
- - Hung-yi Lee ML 学习笔记
+  - Hung-yi Lee ML 学习笔记
 ---
 
-[课件下载Lecture6.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf)
+[课件下载 Lecture6.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf)
 
 ## Input
 
-一段文字，语音，图这些都可以看作一组长度不定的vector作为Self-attention的输入<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705653965970-ef33f7f3-ea6e-40d4-bfba-8c7830d9e417.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705654136271-597faf93-ebcb-47c5-8e68-0af02c88135f.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705654150904-a8921268-3c75-4200-98f5-fa9e35b79dbe.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705654172064-b076b01d-ac86-4099-b269-0cd296455e46.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705654186823-bce3dc8b-2b35-4c6d-98c7-203840d8c759.png)
+一段文字，语音，图这些都可以看作一组长度不定的 vector 作为 Self-attention 的输入<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705653965970-ef33f7f3-ea6e-40d4-bfba-8c7830d9e417.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705654136271-597faf93-ebcb-47c5-8e68-0af02c88135f.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705654150904-a8921268-3c75-4200-98f5-fa9e35b79dbe.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705654172064-b076b01d-ac86-4099-b269-0cd296455e46.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705654186823-bce3dc8b-2b35-4c6d-98c7-203840d8c759.png)
 
 ## Output
 
@@ -32,7 +32,7 @@ tags:
 
 ### Framework
 
-可以采用一层的Self-attention也可以使用多层的Self-attention<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705657511090-6f6181c3-96c2-441d-a0b6-bbbc99db77de.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705655538762-fe839649-b27e-47de-928b-7f131aef50de.png)
+可以采用一层的 Self-attention 也可以使用多层的 Self-attention<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705657511090-6f6181c3-96c2-441d-a0b6-bbbc99db77de.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705655538762-fe839649-b27e-47de-928b-7f131aef50de.png)
 
 ### Algorithm
 
@@ -56,11 +56,11 @@ tags:
 
 ## Postscript
 
-### Self-attention和CNN的关系
+### Self-attention 和 CNN 的关系
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705665315664-41209c12-6790-49de-ac12-1c0ebbe5953b.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705665575016-333765ba-371f-479b-8895-22e3a68da619.png)
 
-### Self-attention和RNN的关系
+### Self-attention 和 RNN 的关系
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705665947584-b18d8fb7-a264-491d-81b6-934971fc9e08.png)
 

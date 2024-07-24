@@ -1,10 +1,10 @@
 ---
 title: Lecture11 恶意攻击(Adversarial Attack)
 tags:
- - Hung-yi Lee ML 学习笔记
+  - Hung-yi Lee ML 学习笔记
 ---
 
-[课件下载Lecture11.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/attack_v3.pdf)
+[课件下载 Lecture11.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/attack_v3.pdf)
 
 ## How to Attack
 
@@ -34,7 +34,7 @@ tags:
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1720948096016-737f18df-cde0-49dd-9af4-4ee971296dbc.png)
 
-对于没有训练数据的情况可以准备部分图片输入调用模型得到对应的结果，然后将图片和输出的结果作为一个pair来训练Proxy Network。
+对于没有训练数据的情况可以准备部分图片输入调用模型得到对应的结果，然后将图片和输出的结果作为一个 pair 来训练 Proxy Network。
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1720948233803-d9e49036-69a0-49c4-80b9-6d438b7554d4.png)
 
@@ -48,8 +48,7 @@ tags:
 
 ## Universal Adversarial Attack
 
-
-用同一个noise给多张图片处理，结果网络的判断结果都发生了变化
+用同一个 noise 给多张图片处理，结果网络的判断结果都发生了变化
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1720949085578-9d2691b6-5945-42bf-8c9a-7a8fd68dd5df.png)
 
@@ -59,15 +58,14 @@ tags:
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1720949479797-978440f3-ed9d-49a4-8486-a794b8954d79.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1720949687999-f32873ba-b719-4130-b311-826fa66a370e.png)
 
-Passive Defense基本上都是利用一些操作将Attack淡化，使之不被网络察觉，从而失效。但是上述几种方法都有致命的缺点，就是如果攻击方知道了你的操作就会在生成攻击的时候考虑你的Defense让其失去作用。比如，在训练之前就进行模糊操作，训练出的Attack就可以让模糊Defense失效。
+Passive Defense 基本上都是利用一些操作将 Attack 淡化，使之不被网络察觉，从而失效。但是上述几种方法都有致命的缺点，就是如果攻击方知道了你的操作就会在生成攻击的时候考虑你的 Defense 让其失去作用。比如，在训练之前就进行模糊操作，训练出的 Attack 就可以让模糊 Defense 失效。
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1720950051387-9f65256f-841e-4fda-991d-926048eef9b8.png)
 
-为了解决上述的问题，就可以采用Randomization的方式进行操作。输入一张图片对它进行随机的处理（缩放，模糊，移动...）然后再进行判断。本质还是一个filter，但是这是一个对图片随机进行变化的filter，可能对于Attack就有更好的防御作用。
-
+为了解决上述的问题，就可以采用 Randomization 的方式进行操作。输入一张图片对它进行随机的处理（缩放，模糊，移动...）然后再进行判断。本质还是一个 filter，但是这是一个对图片随机进行变化的 filter，可能对于 Attack 就有更好的防御作用。
 
 ### Proactive Defense
 
 ![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1720950313107-8b40a30d-32d8-4323-8c36-381533630e31.png)
 
-主动防御就是自己训练攻击模型对网络进行攻击，然后将攻击图片进行正确标注然后加入训练数据集进行训练，就可以起到Defense的作用。（当然，这个也是一种数据增强的方式，即使没有人要对你进行Attack也可以使用这个方法增强模型的鲁棒性）
+主动防御就是自己训练攻击模型对网络进行攻击，然后将攻击图片进行正确标注然后加入训练数据集进行训练，就可以起到 Defense 的作用。（当然，这个也是一种数据增强的方式，即使没有人要对你进行 Attack 也可以使用这个方法增强模型的鲁棒性）

@@ -1,27 +1,27 @@
 ---
 title: FRP 内网穿透(Ubuntu ssh穿透)
 tags:
- - Linux
+  - Linux
 ---
 
 ## 前期准备
 
-需要一台具有**公网IP的服务器**（可以外网访问的服务器）
+需要一台具有**公网 IP 的服务器**（可以外网访问的服务器）
 
 需要被穿透的内网设备
 
 配置主要分两部分：
 
-- FRP服务端，布局在具有公网的IP的服务器
-- FRP客户端，布局在内网设备
+- FRP 服务端，布局在具有公网的 IP 的服务器
+- FRP 客户端，布局在内网设备
 
-### FRP安装
+### FRP 安装
 
-在服务器端和客户端分别安装FRP并赋予相关执行权限
+在服务器端和客户端分别安装 FRP 并赋予相关执行权限
 
-FRP一键安装命令，参考[秋风的Frp一键安装脚本](https://www.right.com.cn/forum/thread-7668427-1-1.html)
+FRP 一键安装命令，参考[秋风的 Frp 一键安装脚本](https://www.right.com.cn/forum/thread-7668427-1-1.html)
 
-``` bash
+```bash
 sudo bash -c "$(curl -sS https://gitee.com/autumn2868/qf-frp/raw/master/qf_frp-install.sh)"
 ```
 
@@ -33,9 +33,9 @@ sudo chmod +x /etc/qffrp/frpc
 
 ## 服务器端配置
 
-### 服务器frp配置
+### 服务器 frp 配置
 
-打开服务器端frp配置文件：
+打开服务器端 frp 配置文件：
 
 ```bash
 sudo vim /etc/qffrp/frps.ini
@@ -64,7 +64,7 @@ log_level = info
 log_max_days = 3
 ```
 
-启动服务器端frp服务：
+启动服务器端 frp 服务：
 
 ```bash
 # 启动命令
@@ -87,17 +87,17 @@ systemctl status frps
 
 ### 验证是否启动成功
 
-在浏览器中输入：http://服务器公网IP:FRP后台端口号，如：http://X.X.X.X:7012
+在浏览器中输入：http://服务器公网 IP:FRP 后台端口号，如：http://X.X.X.X:7012
 
-输入用户名和密码（frps.ini中配置的）出现下图即可说明服务端成功启动
+输入用户名和密码（frps.ini 中配置的）出现下图即可说明服务端成功启动
 
 ![image-20240619115152292](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/image-20240619115152292.png)
 
 ## 客户端配置
 
-### 客户端frp配置
+### 客户端 frp 配置
 
-打开服务器端frp配置文件：
+打开服务器端 frp 配置文件：
 
 ```bash
 sudo vim /etc/qffrp/frpc.ini
@@ -126,7 +126,7 @@ local_port = 22
 remote_port = 7001
 ```
 
-启动服务器端frp服务：
+启动服务器端 frp 服务：
 
 ```bash
 # 启动命令
@@ -164,11 +164,10 @@ sudo ufw disable
 ssh -p 端口号 用户名@服务端ip
 ```
 
-这里用的是客户端的用户名和服务器的公网ip，端口号用的frpc.ini文件中的remote_port
+这里用的是客户端的用户名和服务器的公网 ip，端口号用的 frpc.ini 文件中的 remote_port
 
 下图是成功连接的示例
 
 ![image-20240619121013866](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/image-20240619121013866.png)
 
-PS. 在配置内网穿透之前强烈建议首先在局域网环境测试ssh是否正常使用
-
+PS. 在配置内网穿透之前强烈建议首先在局域网环境测试 ssh 是否正常使用

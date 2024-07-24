@@ -1,11 +1,10 @@
 ---
 title: Lecture13 领域自适应(Domain Adaptation)
 tags:
- - Hung-yi Lee ML 学习笔记
+  - Hung-yi Lee ML 学习笔记
 ---
 
-
-[课件下载](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/da_v6.pdf)
+[课件下载 Lecture13](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/da_v6.pdf)
 
 ## Domain Shift
 
@@ -13,15 +12,15 @@ tags:
 
 ## Domain Adaptation
 
-Domain Adaptation依据我们对target domain的了解程度有不同的类型。
+Domain Adaptation 依据我们对 target domain 的了解程度有不同的类型。
 
 ### Little but labeled
 
-![](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721382997821-77ee13c2-af6e-4685-bc8b-cbdf2ed936f4.png)<br />对于少量有标注的target domain，可以在训练出来的model的基础上进行微调(fine-tune)，但是由于数据量很少要注意overfitting问题，只需要训练几个epoch就行。
+![](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721382997821-77ee13c2-af6e-4685-bc8b-cbdf2ed936f4.png)<br />对于少量有标注的 target domain，可以在训练出来的 model 的基础上进行微调(fine-tune)，但是由于数据量很少要注意 overfitting 问题，只需要训练几个 epoch 就行。
 
 ### Large amount of unlabeled data
 
-![](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721383190499-ea39514c-5a13-4709-907a-a24f1a0ff898.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721383218090-aa3be8f5-a905-4224-adfa-038d4a8d0969.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721383389588-fa0e3efd-07ea-4e8b-9e80-9a0768ffa01f.png)<br />对于这个类型的Domain Adaptaion基本思路是Source Domain和Target Domain经过Feature Extractor后得到的特征分布相似。就像上图中蓝色点和红色点的分布几乎没有什么明显的差别。<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721383616826-bb3ad9bb-eaf1-42be-bc78-35faf870d5e2.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721384946800-6dd35110-1140-48a4-b77a-c373f03f1f15.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721387025804-b88e1d3c-4209-4f4c-961a-23204c13fa27.png)<br />领域分类器的工作是把源领域跟目标领域分开，根据特征提取器的特征，来判断数据是来自源领域还是目标领域，把源领域和目标领域的两组特征分开。而特征提取器要做的事情跟领域分类器相反想要骗过Discriminator，有点类似于GAN，其实起到的效果也是将两组特征分开，但是我们其实想要的是让Feature Extractor输出的两组特征没有明显的差异，所以这个方法并不是最好的方法，但是it works。<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721447172927-277ff5b0-871a-49f0-b084-73a14b53c591.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721447206960-5a5fb099-1ece-4a23-a2dd-bf160e30cba0.png)<br />刚才这整套想法，有一个小小的问题。用蓝色的圆圈和三角形表示源领域上的两个类别，用正方形来表示目标领域上无类别标签的数据。可以找一个边界去把源领域上的两个类别分开。训练的目标是要让正方形的分布跟圆圈、三角形合起来的分布越接近越好。在图（a）所示的情况中，红色的点跟蓝色的点是挺对齐在一起的。在图（b）所示的情况中，红色的点跟蓝色的点是分布挺接近的。**虽然正方形的类别是未知的，但蓝色的圆圈跟蓝色的三角形的决策边界是已知的，应该让正方形远离决策边界。**因此两种情况相比，我们更希望在图（b）的情况发生，而避免让在图（a）的状况发生。
+![](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721383190499-ea39514c-5a13-4709-907a-a24f1a0ff898.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721383218090-aa3be8f5-a905-4224-adfa-038d4a8d0969.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721383389588-fa0e3efd-07ea-4e8b-9e80-9a0768ffa01f.png)<br />对于这个类型的 Domain Adaptaion 基本思路是 Source Domain 和 Target Domain 经过 Feature Extractor 后得到的特征分布相似。就像上图中蓝色点和红色点的分布几乎没有什么明显的差别。<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721383616826-bb3ad9bb-eaf1-42be-bc78-35faf870d5e2.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721384946800-6dd35110-1140-48a4-b77a-c373f03f1f15.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721387025804-b88e1d3c-4209-4f4c-961a-23204c13fa27.png)<br />领域分类器的工作是把源领域跟目标领域分开，根据特征提取器的特征，来判断数据是来自源领域还是目标领域，把源领域和目标领域的两组特征分开。而特征提取器要做的事情跟领域分类器相反想要骗过 Discriminator，有点类似于 GAN，其实起到的效果也是将两组特征分开，但是我们其实想要的是让 Feature Extractor 输出的两组特征没有明显的差异，所以这个方法并不是最好的方法，但是 it works。<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721447172927-277ff5b0-871a-49f0-b084-73a14b53c591.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1721447206960-5a5fb099-1ece-4a23-a2dd-bf160e30cba0.png)<br />刚才这整套想法，有一个小小的问题。用蓝色的圆圈和三角形表示源领域上的两个类别，用正方形来表示目标领域上无类别标签的数据。可以找一个边界去把源领域上的两个类别分开。训练的目标是要让正方形的分布跟圆圈、三角形合起来的分布越接近越好。在图（a）所示的情况中，红色的点跟蓝色的点是挺对齐在一起的。在图（b）所示的情况中，红色的点跟蓝色的点是分布挺接近的。**虽然正方形的类别是未知的，但蓝色的圆圈跟蓝色的三角形的决策边界是已知的，应该让正方形远离决策边界。**因此两种情况相比，我们更希望在图（b）的情况发生，而避免让在图（a）的状况发生。
 
 ### little and unlabeled
 

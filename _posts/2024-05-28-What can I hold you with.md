@@ -1,16 +1,12 @@
 ---
 title: What can I hold you with?
-tags: 
- - 箴言
+tags:
+  - 箴言
 jekyll-theme-WuK:
- background_music: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=1306923998&auto=0&height=66"></iframe>'
+  background_music: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=1306923998&auto=0&height=66"></iframe>'
 ---
 
-
-
 > What can I hold you with? &emsp;&emsp;&emsp;——Jorges Luis Borges
->
-> 
 >
 > 我用什么才能留住你？
 >
