@@ -1,7 +1,7 @@
 ---
 title: Lecture6 注意力机制(Self-attention)
 tags:
- - 学习笔记
+ - Hung-yi Lee ML 学习笔记
 ---
 
 [课件下载Lecture6.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf)

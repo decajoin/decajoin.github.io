@@ -1,7 +1,7 @@
 ---
 title: Lecture5 卷积神经网络(CNN)
 tags:
- - 学习笔记
+ - Hung-yi Lee ML 学习笔记
 ---
 
 

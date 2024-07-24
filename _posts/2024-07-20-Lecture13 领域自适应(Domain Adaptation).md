@@ -1,7 +1,7 @@
 ---
 title: Lecture13 领域自适应(Domain Adaptation)
 tags:
- - 学习笔记
+ - Hung-yi Lee ML 学习笔记
 ---
 
 

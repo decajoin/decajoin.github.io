@@ -1,7 +1,7 @@
 ---
 title: Lecture10 自编码器 (Auto-encoder)
 tags:
- - 学习笔记
+ - Hung-yi Lee ML 学习笔记
 ---
 
 [课件下载Lecture10.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/auto_v8.pdf)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1708506864375-1590c3a2-f362-41f6-b1bf-2e1abaa8bb3e.png)

@@ -1,7 +1,7 @@
 ---
 title: Lecture7 Transformer
 tags:
- - 学习笔记
+ - Hung-yi Lee ML 学习笔记
 ---
 
 [课件下载Lecture7.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/seq2seq_v9.pdf)

@@ -1,7 +1,7 @@
 ---
 title: Lecture14 强化学习(Reinforcement Learning)
 tags:
- - 学习笔记
+ - Hung-yi Lee ML 学习笔记
 ---
 
 

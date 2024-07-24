@@ -1,7 +1,7 @@
 ---
 title: Lecture8 生成式对抗网络(GAN)
 tags:
- - 学习笔记
+ - Hung-yi Lee ML 学习笔记
 ---
 
 
