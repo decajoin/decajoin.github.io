@@ -4,7 +4,7 @@ tags:
   - Hung-yi Lee ML 学习笔记
 ---
 
-[课件下载 Lecture9.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/bert_v8.pdf)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1708268813741-41d0485f-58b8-41ee-ad1c-c754f98bcdb9.png)
+[课件下载 Lecture9](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/bert_v8.pdf)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1708268813741-41d0485f-58b8-41ee-ad1c-c754f98bcdb9.png)
 
 ## BERT series
 

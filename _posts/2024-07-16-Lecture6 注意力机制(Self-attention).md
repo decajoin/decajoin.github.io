@@ -4,7 +4,7 @@ tags:
   - Hung-yi Lee ML 学习笔记
 ---
 
-[课件下载 Lecture6.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf)
+[课件下载 Lecture6](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf)
 
 ## Input
 

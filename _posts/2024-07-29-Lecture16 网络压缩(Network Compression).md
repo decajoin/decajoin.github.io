@@ -4,7 +4,7 @@ tags:
   - Hung-yi Lee ML 学习笔记
 ---
 
-[课件下载 Lecture16.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/tiny_v7.pdf)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1722134277648-e0ed016e-042a-430d-8a29-74a697f5f5e9.png)<br />有时候我们需要将模型部署到其他算力较低的平台（手表，无人机......），这个时候就需要模型参数不能太大，我们就需要对我们的原模型进行网络压缩，在尽量保持模型效果的前提下，缩小模型的规模。<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1722134563122-a75545b3-bc04-4336-9fcc-7e43c1a9247e.png)<br />下面介绍五种**算法层面**的网络压缩，没有考虑硬件加速的部分。
+[课件下载 Lecture16](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/tiny_v7.pdf)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1722134277648-e0ed016e-042a-430d-8a29-74a697f5f5e9.png)<br />有时候我们需要将模型部署到其他算力较低的平台（手表，无人机......），这个时候就需要模型参数不能太大，我们就需要对我们的原模型进行网络压缩，在尽量保持模型效果的前提下，缩小模型的规模。<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1722134563122-a75545b3-bc04-4336-9fcc-7e43c1a9247e.png)<br />下面介绍五种**算法层面**的网络压缩，没有考虑硬件加速的部分。
 
 ## Network Pruning
 

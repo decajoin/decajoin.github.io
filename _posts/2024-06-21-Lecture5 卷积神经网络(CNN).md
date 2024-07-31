@@ -4,7 +4,7 @@ tags:
   - Hung-yi Lee ML 学习笔记
 ---
 
-[课件下载 Lecture5.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/cnn_v4.pdf)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705580904785-0e9ce279-c2ca-4765-a97f-59aeb417e492.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705581061254-ce72c4f8-7da4-477a-b081-8cc77b55bc16.png)
+[课件下载 Lecture5](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/cnn_v4.pdf)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705580904785-0e9ce279-c2ca-4765-a97f-59aeb417e492.png)<br />![image.png](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1705581061254-ce72c4f8-7da4-477a-b081-8cc77b55bc16.png)
 
 ## Receptive Field
 

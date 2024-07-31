@@ -4,7 +4,7 @@ tags:
   - Hung-yi Lee ML 学习笔记
 ---
 
-[课件下载 Lecture11.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/attack_v3.pdf)
+[课件下载 Lecture11](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/attack_v3.pdf)
 
 ## How to Attack
 
