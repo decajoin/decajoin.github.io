@@ -81,9 +81,28 @@ systemctl status frps
 
 ### 服务器防火墙配置
 
-云服务器不是在命令行配置防火墙，而是在后台。对于腾讯云服务器，需要在后台进入防火墙配置，然后添加规则，开放对应端口。
+云服务器需要再后台开放端口。对于腾讯云服务器，需要在后台进入防火墙配置，然后添加规则，开放对应端口。
 
-![image-20240619114717468](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/image-20240619114717468.png)
+![img](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1718771617186-04c36b5b-5123-4f61-b5d3-c4bdfeb90022.png)
+
+还需要再命令行中配置开放端口
+
+首先查看已开放端口
+
+```bash
+sudo firewall-cmd --list-all
+```
+
+![img](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1726494079915-bd12dfc2-110e-4327-93ff-dd732407eb6e.png)
+
+检查对应的端口是否打开，打开需要的端口（比如现在我们需要打开 7002 端口），然后可以再检查端口开放情况，发现 7002 端口已经打开。
+
+```bash
+sudo firewall-cmd --add-port=7002/tcp --permanent
+sudo firewall-cmd --reload
+```
+
+![img](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1726494182863-a3fa7313-6e11-46d0-b389-5c29c36e02cf.png)
 
 ### 验证是否启动成功
 
