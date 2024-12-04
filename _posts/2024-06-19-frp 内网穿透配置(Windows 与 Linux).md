@@ -1,5 +1,5 @@
 ---
-title: FRP 内网穿透(Ubuntu ssh穿透)
+title: frp 内网穿透配置(Windows 与 Linux)
 tags:
   - Linux
 ---
@@ -12,14 +12,14 @@ tags:
 
 配置主要分两部分：
 
-- FRP 服务端，布局在具有公网的 IP 的服务器
-- FRP 客户端，布局在内网设备
+- frp 服务端，布局在具有公网的 IP 的服务器
+- frp 客户端，布局在内网设备
 
-### FRP 安装
+### frp 安装
 
-在服务器端和客户端分别安装 FRP 并赋予相关执行权限
+在服务器端和客户端分别安装 frp 并赋予相关执行权限
 
-FRP 一键安装命令，参考[秋风的 Frp 一键安装脚本](https://www.right.com.cn/forum/thread-7668427-1-1.html)
+frp 一键安装命令，参考[秋风的 frp 一键安装脚本](https://www.right.com.cn/forum/thread-7668427-1-1.html)
 
 ```bash
 sudo bash -c "$(curl -sS https://gitee.com/autumn2868/qf-frp/raw/master/qf_frp-install.sh)"
@@ -106,7 +106,7 @@ sudo firewall-cmd --reload
 
 ### 验证是否启动成功
 
-在浏览器中输入：http://服务器公网 IP:FRP 后台端口号，如：http://X.X.X.X:7012
+在浏览器中输入：http://服务器公网 IP:frp 后台端口号，如：http://X.X.X.X:7012
 
 输入用户名和密码（frps.ini 中配置的）出现下图即可说明服务端成功启动
 
@@ -127,7 +127,7 @@ sudo vim /etc/qffrp/frpc.ini
 复制的时候记得删除所有注释（可能会引起未知错误）
 
 ```bash
-# FRP客户端
+# frp客户端
 [common]
 server_addr = 服务器公网ip地址
  # 与frps.ini的bind_port一致
@@ -190,3 +190,45 @@ ssh -p 端口号 用户名@服务端ip
 ![image-20240619121013866](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/image-20240619121013866.png)
 
 PS. 在配置内网穿透之前强烈建议首先在局域网环境测试 ssh 是否正常使用
+
+## Windows 系统下的穿透
+上述都是 Linux 环境下的 frp 的安装和使用，下面介绍一下 Windows 下的安装和使用。
+
+### frp  安装
+下载 frp，我这里使用的是 v.0.45.0，[下载地址](https://github.com/fatedier/frp/releases/tag/v0.45.0)
+
+### 客户端 frp 配置
+默认你的 frp 是云服务器，关于云服务器端的配置参见上文。所以，这里我们只需要对客户端进行配置。
+
+![](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1733298824633-712200ca-bec3-4634-a7cd-fcb41fa0e11d.png)
+
+打开 frpc.ini 进行设置，文件内容设置如下（其实和 Linux 下的客户端配置完全一样）
+
+```bash
+# FRP客户端
+ [common]
+ server_addr = 服务器公网ip地址
+  # 与frps.ini的bind_port一致
+ server_port = 7000
+  # 与frps.ini的token一致
+ token = 1234
+
+ # 配置ssh服务
+ [ssh]
+ type = tcp
+ # 也可以是当前设备局域网内的其它IP
+ local_ip = 127.0.0.1
+ local_port = 22
+ # 这个自定义，之后再ssh连接的时候要用
+ remote_port = 7001
+```
+
+配置完成后，在这个文件夹路径打开终端，运行下面命令即可进行连接
+
+```bash
+./frpc.exe -c ./frpc.ini
+```
+
+运行结果如下，代表穿透成功
+
+![](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/1733299087142-d23b252a-e489-4f9c-8985-4c97c0692e6f.png)
