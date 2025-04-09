@@ -114,6 +114,7 @@ python ./tools/train.py ./configs/efficientnet/efficientnet-b0_8xb32_in1k.py（�
 > 3. data_root 设置为自定义数据集文件夹位置
 > 4. type 设置为 CustomDataset
 > 5. 注释掉 split 参数
+> 6. num_classes 设置为数据集的类别数量
 
 6. 运行命令开始训练
 
@@ -126,6 +127,9 @@ python ./tools/train.py ./work_dirs/efficientnet-b0_8xb32_in1k/efficientnet-b0_8
 ```bash
 # 训练
 python ./tools/train.py work_dirs/davit-base_4xb256_in1k/davit-base_4xb256_in1k.py
+
+# 测试（计算测试集的准确率）
+ python ./tools/test.py ./work_dirs/模型配置.py ./work_dirs/resnet18_8xb16_cifar10/训练权重.pth
 
 # 绘制 loss 曲线
 python tools/analysis_tools/analyze_logs.py plot_curve your_log_json  --out ./custom/results_loss.jpg
@@ -140,3 +144,30 @@ python tools/analysis_tools/analyze_logs.py plot_curve log1.json log2.json --key
 python tools/analysis_tools/analyze_logs.py cal_train_time  your_log_json
 ```
 
+## 3. 实战应用
+
+### 利用训练好的模型进行预测
+
+注意需要在有 MMPretrain 框架的环境才可以使用，依赖的相关文件包括
+
+![image-20250409223023501](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/image-20250409223023501.png)
+
+```python
+from .mmpretrain.apis.image_classification import ImageClassificationInferencer
+
+# 导入模型配置文件和模型权重文件
+config = 'model_config_path'
+checkpoint = 'model_config_checkpoint'
+
+# 初始化分类推理器
+inferencer = ImageClassificationInferencer(model=config, pretrained=checkpoint, device='cuda')
+
+# 进行分类，得到预测的类别和对应的置信度
+result = inferencer(file_path)[0]
+print(result)
+print('\n' + result['pred_class'] + " : " + str(result['pred_score']))
+```
+
+下面是一个应用的示例图
+
+![image-20250409222624733](https://yeyi0003.oss-cn-hangzhou.aliyuncs.com/image-20250409222624733.png)
