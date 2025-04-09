@@ -1,6 +1,6 @@
 title: niss # 站点标题
 description: | # 头像背后的信息（html格式），<br/>代表换行
-  <a href="mailto:niss@niss.us.kg">
+  <a href="mailto:niss@niss.dpdns.org">
     <i class="fa-solid fa-envelope"></i>
   </a>
   <a href="https://github.com/decajoin">
@@ -243,7 +243,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
               - | # Copyright声明
                 <div>
                   <i class="fa-solid fa-copyright fa-fw"></i>
-                  2017-2024 niss
+                  2024-2025 niss
                 </div>
             wordcount: # 全站字数统计
               enable: false # 本地调试时建议关闭，非常影响站点生成速度（所需时间与博文数量的平方成正比）
